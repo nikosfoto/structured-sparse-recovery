@@ -1,4 +1,4 @@
-# structured-sparse-recovery
+# Structured Sparse Recovery
 
 ## Requirements:
 
