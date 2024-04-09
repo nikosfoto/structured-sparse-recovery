@@ -1,5 +1,5 @@
-utils/__pycache__/generate_structured_data.cpython-311.pyc
-utils/__pycache__/recover_structured_sparse_signal_with_regularization.cpython-311.pyc
-utils/__pycache__/recover_structured_sparse_signal.cpython-311.pyc
-utils/__pycache__/
-data/
+utils\__pycache__\generate_structured_data.cpython-311.pyc
+utils\__pycache__\recover_structured_sparse_signal_with_regularization.cpython-311.pyc
+utils\__pycache__\recover_structured_sparse_signal.cpython-311.pyc
+utils\__pycache__\
+data\Project_Structured_Sparsity.mat
