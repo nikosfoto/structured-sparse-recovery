@@ -10,12 +10,17 @@ def recover_structured_sparse_signal_with_regularization(CS_mat, y, alpha):
     x0 = np.zeros(n)  # Initial guess for optimization
 
     # Define support constraints to enforce symmetry
-    def support_constraints(x):
+    def support_constraints_first_half(x):
         x1 = x[:n//2]
         x2 = x[n//2:]
-        return np.linalg.norm(x1, ord=1)-np.linalg.norm(x2, ord=1)
+        return np.linalg.norm(x1-x2, ord=1)-np.linalg.norm(x1, ord=1)
+    
+    # def support_constraints_second_half(x):
+    #     x1 = x[:n//2]
+    #     x2 = x[n//2:]
+    #     return np.linalg.norm(x1-x2, ord=0)-np.linalg.norm(x2, ord=0)
 
     bounds = [(None, None)] * n  # No constraints on entries
-    constraints = [{'type': 'eq', 'fun': support_constraints}]
+    constraints = [{'type': 'eq', 'fun': support_constraints_first_half}]
     res = minimize(objective_function, x0, args=(CS_mat, y, alpha), bounds=bounds, constraints=constraints)
     return res.x
