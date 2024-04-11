@@ -6,6 +6,7 @@ Project for EE4740 Data Compression: Entropy and Sparsity Perspectives (2023/24 
 
 ### Python packages
 - [NumPy](https://pypi.org/project/numpy/ )
+- [SciPy](https://pypi.org/project/scipy/ )
 - [Matplotlib](https://pypi.org/project/matplotlib/)
 - [Scikit-learn](https://pypi.org/project/scikit-learn/)
 - [CVXPY](https://pypi.org/project/cvxpy/)
@@ -13,7 +14,7 @@ Project for EE4740 Data Compression: Entropy and Sparsity Perspectives (2023/24 
 
 The above packages can be installed with the following command:
 
-`pip install numpy, matplotlib, scikit-learn, cvxpy, ipywidgets`
+`pip install numpy, scipy, matplotlib, scikit-learn, cvxpy, ipywidgets`
 
 ### LaTeX
 
