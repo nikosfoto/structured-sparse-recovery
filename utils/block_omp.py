@@ -5,17 +5,17 @@ def block_omp(A, y, block_size, sparsity, tolerance=1e-6):
     Block Orthogonal Matching Pursuit (Block OMP) algorithm
     
     Parameters:
-        A (ndarray): Measurement matrix of shape (m, n).
-        y (ndarray): Measurement vector of shape (m, ).
+        A (ndarray): Measurement matrix of shape (M, N).
+        y (ndarray): Measurement vector of shape (M, ).
         block_size (int): Size of each block in the block sparse signal.
         sparsity (int): Desired sparsity level of the solution.
         tolerance (float): Tolerance parameter for early stopping (default: 1e-6).
         
     Returns:
-        x_hat (ndarray): Estimated block sparse signal of shape (n, ).
+        x_hat (ndarray): Estimated block sparse signal of shape (N, ).
     """
-    m, n = A.shape
-    num_blocks = n // block_size
+    M, N = A.shape
+    num_blocks = N // block_size
     
     # Initialize residual and support set
     r = y.copy()
@@ -48,7 +48,7 @@ def block_omp(A, y, block_size, sparsity, tolerance=1e-6):
             break
     
     # Reconstruct the block sparse signal
-    x_hat = np.zeros(n)
+    x_hat = np.zeros(N)
     x_hat[list(support)] = x_hat_selected
     
     return x_hat
