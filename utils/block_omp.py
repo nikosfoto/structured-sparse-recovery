@@ -1,6 +1,6 @@
 import numpy as np
 
-def block_omp(A, y, block_size, sparsity, tolerance=1e-6):
+def block_omp(A, y, block_size, sparsity_level, tolerance=1e-6):
     """
     Block Orthogonal Matching Pursuit (Block OMP) algorithm
     
@@ -8,7 +8,7 @@ def block_omp(A, y, block_size, sparsity, tolerance=1e-6):
         A (ndarray): Measurement matrix of shape (M, N).
         y (ndarray): Measurement vector of shape (M, ).
         block_size (int): Size of each block in the block sparse signal.
-        sparsity (int): Desired sparsity level of the solution.
+        sparsity_level (int): Desired signal sparsity level (NOT block sparsity level).
         tolerance (float): Tolerance parameter for early stopping (default: 1e-6).
         
     Returns:
@@ -22,7 +22,7 @@ def block_omp(A, y, block_size, sparsity, tolerance=1e-6):
     support = set()
     
     # Main loop
-    for _ in range(sparsity):
+    for _ in range(sparsity_level):
         # Compute inner products of residual with each block
         inner_products = np.abs(A.T @ r)
         
